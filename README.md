@@ -36,8 +36,8 @@ On `fork`:
 This is ***not*** likely to happen during the term, except for critical patches but it _is_ likely to happen at the end of the term when new features should be upstreamed to `root`.
 
 On `fork`: 
-1. Pull changes from `root/master` into `fork/master` (described above) (TBD: maybe better to pull into `fork/sync`)
-1. `git checkout sync`
-1. `git cherry-pick -x <SHA>` for each `<SHA>` you want to upstream. BE CAREFUL: these commits should not include any course-specific code.
+1. Pull changes from `root/master` into `fork/sync` (described above but replace `master` with `sync` in the two relevant commands)
+1. `git checkout sync` (probably already checked out)
+1. `git cherry-pick -x <SHA>` for each `<SHA>` you want to upstream. BE CAREFUL: these commits should not include any course-specific code. Also, to clarify, these commits should be in the history of `fork/master`. Merge conflicts are likely at this step and need to be resolved before moving to the next step.
 1. `git push origin sync` (sends cherry picked commits to server)
 1. Open the `sync` branch in the GitHub web interface and make a pull request `fork/sync` to `root/master` (sends cherry picked commits to `root/master` that can then be evaluated in a PR before being merged into `root/master`).
